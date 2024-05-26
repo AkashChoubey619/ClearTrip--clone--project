@@ -1,0 +1,189 @@
+body{
+    margin:0px; 
+    padding:0px;
+    box-sizing: border-box;
+    width: 100vw;
+    font-size: 12px;
+    overflow-x: hidden;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif;
+  }
+.btn-grp{
+    text-transform: none;
+    font-size: 12px;
+    color: black;
+    height: 33px;
+    border-radius: 20px;
+}
+.dateBox{
+  border: 1px solid #ccc;
+  border-radius: 9px;
+}
+
+.custom-datepicker {
+  font-size: 16px;
+  font-family: Roboto,Helvetica Neue,Ubuntu,Arial,sans-serif;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  margin-left: 5px;
+  margin-block:  8px;
+  width: 155px;
+  min-width: 110px;
+  cursor: pointer;
+  color:rgb(26, 26, 26);
+  padding: 6px 8px;
+  
+}
+
+/* Custom style for the selected date */
+.custom-datepicker .react-datepicker__input-container input {
+  padding: 8px;
+  outline: none;
+  
+}
+/* Custom style for the placeholder text */
+.custom-datepicker .react-datepicker__input-container input::placeholder {
+  color: #999;
+ 
+}
+
+/* Custom style for the calendar */
+.custom-datepicker .react-datepicker {
+  border-radius: 4px; z-index: 15;
+}
+
+/* Custom style for the calendar header */
+.custom-datepicker .react-datepicker__header {
+  background-color: #f0f0f0;
+}
+
+/* Custom style for the calendar navigation buttons */
+.custom-datepicker .react-datepicker__navigation {
+  background-color: #ddd;
+}
+
+/* Custom style for the calendar weekdays */
+.custom-datepicker .react-datepicker__day-name {
+  color: #333;
+}
+
+/* Custom style for the calendar days */
+.custom-datepicker .react-datepicker__day {
+  color: #1a1a1a;
+}
+.custom-calendar-popper {
+  z-index: 999; /* Set your desired z-index value here */
+}
+
+/* hotel  search page */
+.hotelOption:hover{
+  background-color: #f0f0f0;
+}
+.optionContainer{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    z-index: 999;
+    max-height: 400px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none; 
+}
+
+
+.slick-dots li.slick-active button:before {
+  color:wheat !important;
+}
+
+.css-4gmltp-MuiStack-root > :not(style) ~ :not(style) {
+  margin: 20px !important; /* Adjust the margin as needed */
+}
+
+
+.slick-prev:before, .slick-next:before {
+  color: lightgray;
+  opacity: 0.8;
+  border-radius: 50%;
+  display: flex;
+align-items: flex-end;
+}
+
+.slick-prev:before, .slick-next:before :hover
+{
+    color: gray;
+    opacity:1;
+}
+.slick-prev, .slick-next {
+  top:84%;
+  margin-inline:8px ;
+}
+.hotelSlide .slick-prev, .slick-next {
+  top: 50%;
+  margin-inline:30px ;
+}
+.hotelSlide .slick-prev{
+z-index: 999;
+}
+.hotelSlide .slick-prev{
+  z-index: 999;
+  }
+.hotelSlide .slick-prev:before, .slick-next:before {
+  color: lightgray;
+  opacity: 0.8;
+  border-radius: 50%;
+  display: flex;
+align-items: center;
+}
+#whiteSpace {
+  display: flex;
+  justify-content: center;
+  height: 70px;
+  width: 100%;
+  margin-top: -24px;
+  border-radius: 4px;
+  backdrop-filter: blur(1px); /* Adjust the blur radius as needed */
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+.hotelInfoSlide {
+  width: 100%; /* Ensure the slider takes up 100% width */
+}
+
+.hotelInfoSlide .slick-list {
+  width: 100%; /* Ensure the list inside the slider takes up 100% width */
+}
+
+.hotelInfoSlide .slick-track {
+  display: flex; /* Ensure the track uses flex display */
+  width: 100%; /* Ensure the track takes up 100% width */
+}
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
+
+datalist {
+  position: absolute;
+  max-height: 20em;
+  border: 0 none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* Option */
+datalist option {
+  font-size: 0.8em;
+  padding: 0.3em 1em;
+  background-color: #ccc;
+  cursor: pointer;
+}
+
+/* Hover and focus styles for options */
+datalist option:hover,
+datalist option:focus {
+  color: #fff;
+  background-color: #036;
+  outline: 0 none;
+}

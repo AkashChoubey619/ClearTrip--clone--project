@@ -1,0 +1,155 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-size: 12px;
+  width: 100vh;
+  overflow-x: hidden;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Ubuntu, Arial, sans-serif;
+}
+
+.btn-grp {
+  text-transform: none;
+  font-size: 12px;
+  color: black;
+  height: 33px;
+  border-radius: 20px;
+}
+
+#dateBox {
+  border: 1px solid #ccc;
+  border-radius: 9px;
+}
+
+#searchBarHotel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-Search {
+  font-size: 15px;
+  font-family: Roboto, Helvetica Neue, Ubuntu, Arial, sans-serif;
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  margin-block: 8px;
+  width: 120px;
+  padding: 0px 6px;
+}
+
+.custom-datepickerSearched {
+  font-size: 16px;
+  font-family: Roboto, Helvetica Neue, Ubuntu, Arial, sans-serif;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  width: 90px;
+  padding: 6px 8px;
+}
+
+/* Custom style for the selected date */
+.custom-datepicker .react-datepicker__input-container input {
+  padding: 8px;
+  outline: none;
+}
+
+/* Custom style for the placeholder text */
+.custom-datepicker .react-datepicker__input-container input::placeholder {
+  color: #999;
+}
+
+/* Custom style for the calendar */
+.custom-datepicker .react-datepicker {
+  border-radius: 4px;
+}
+
+/* Custom style for the calendar header */
+.custom-datepicker .react-datepicker__header {
+  background-color: #f0f0f0;
+}
+
+/* Custom style for the calendar navigation buttons */
+.custom-datepicker .react-datepicker__navigation {
+  background-color: #ddd;
+}
+
+/* Custom style for the calendar weekdays */
+.custom-datepicker .react-datepicker__day-name {
+  color: #333;
+}
+
+/* Custom style for the calendar days */
+.custom-datepicker .react-datepicker__day {
+  color: #333;
+}
+
+.slick-dots li.slick-active button:before {
+  color: wheat !important;
+}
+
+.css-4gmltp-MuiStack-root> :not(style)~ :not(style) {
+  margin: 20px !important;
+  /* Adjust the margin as needed */
+}
+
+
+.moreOffers .slick-prev:before,
+.slick-next:before {
+  color: lightgray;
+  opacity: 0.8;
+  border-radius: 50%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.moreOffers .slick-prev:before,
+.slick-next:before :hover {
+  color: gray;
+  opacity: 1;
+}
+
+.custom-datepicker .slick-prev{
+  top: 84%;
+  margin-inline: 8px;
+}
+
+.moreOffers .slick-prev,.moreOffers .slick-next  {
+  top: 84%;
+  margin-inline: 8px;
+}
+
+.stopBtn1 {
+  color: 'yellow';
+  cursor: not-allowed;
+}
+
+.offerList {
+  display: flex;
+  align-items: center;
+    cursor:pointer;
+    padding: 10px 4px;
+    gap:14px;
+    font-weight:600;
+    font-size:16px;
+    color:grey;
+
+}
+.offerListClicked {
+  display: flex;
+  align-items: center;
+    cursor:pointer;
+    padding: 10px 4px;
+    gap:14px;
+    font-weight:600;
+    font-size:16px;
+    color:black;
+    background:white;
+}
+.offerList:hover{
+  color:black;
+  background:white;
+}
+input::-webkit-calendar-picker-indicator {
+  opacity: 0;
+}
