@@ -44,9 +44,9 @@ import { usePeopleContext } from '../../Context/MainContext';
 
 
 
-export default function FlightNavigation({ flightDetails, setCity1, setCity2 }) {
+export default function FlightNavigation({ flightDetails, setCity1, setCity2,login }) {
     const [anchorEl, setAnchorEl] = React.useState(true);
-    const {setNavigate}=usePeopleContext();
+    const {setNavigate,openModal, setOpenModal}=usePeopleContext();
     const [modalToggle, setModalToggle] = useState('signUp');
     const [isLoading, setIsLoading] = useState(false);
     const [userName, setUserName] = useState('');
@@ -57,7 +57,7 @@ export default function FlightNavigation({ flightDetails, setCity1, setCity2 }) 
     const [presentDate, setPresentDate] = useState(new Date(flightDetails[2]));
     const [returnDate, setReturnDate] = useState(new Date(flightDetails[3]));
     const [rotationAngle, setRotationAngle] = useState(0);
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const myData = localStorage.getItem("userData");
     const name = myData && myData.name;
     const [firstInput, setFirstInput] = useState(`${flightDetails[0].iata_code}-${flightDetails[0].city}-${flightDetails[0].name}`);
@@ -114,8 +114,8 @@ export default function FlightNavigation({ flightDetails, setCity1, setCity2 }) 
         //     console.log(`${firstInput.split("-")[0].trim()}`)
         //     console.log(secondInput.split("-")[0].trim())
     }
-    const [openModal, setOpenModal] = React.useState(false);
-    const handleOpenModal = () => { setOpenModal(true), console.log(true) };
+    // const [openModal, setOpenModal] = React.useState(false);
+    const handleOpenModal = () => { setOpenModal(true) };
     const handleCloseModal = () => { setOpenModal(false) };
     const settings = {
         dots: true,

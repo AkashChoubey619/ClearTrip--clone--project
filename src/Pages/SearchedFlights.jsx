@@ -10,6 +10,7 @@ export default function SearchedFlights() {
   const flightDetails = JSON.parse(localStorage.getItem("searchFlight"))
   const [city1,setCity1] = useState(flightDetails[0].iata_code)
   const [city2,setCity2] = useState( flightDetails[1].iata_code)
+  const [checkLogin,setCheckLogin]=useState(false)
   const [oneWayDetails, setOneWayDetails] = useState([]);
   const [roundTripDetails, setRoundTripDetails] = useState([]);
   const [price, setPrice] = useState({ starts: null, end: null });
@@ -102,22 +103,22 @@ export default function SearchedFlights() {
   useEffect(() => {
     fetchFlightDetails()
     window.scrollTo(0, 0);
-  }, [stops,price,departure,city1,city2])
+  }, [stops,price,departure,city1,city2,checkLogin])
 
 
   return (
     <div>
       <Box>
-        <Navigation flightDetails={flightDetails} setCity1={setCity1} setCity2={setCity2} />
+        <Navigation login={checkLogin} flightDetails={flightDetails} setCity1={setCity1} setCity2={setCity2} />
       </Box>
       <Grid container spacing={2} style={{ padding: "10px 3.5%" }}>
         <Grid item xs={12} sm={3}>
           <FilterSectionFlight setPrice={setPrice} setDeparture={setDeparture} setStops={setStops} />
         </Grid>
-        <Grid item xs={12} sm={9}>
+        <Grid item xs={12} sm={9}> 
           <OfferForFlights />
           <Divider sx={{ width: '80%', m: '18px auto' }} orientation='horizontal' flexItem />
-          <AllSearchedFlights oneWayDetails={oneWayDetails} roundTripDetails={roundTripDetails} way={way} />
+          <AllSearchedFlights login={checkLogin} setLogin={setCheckLogin} oneWayDetails={oneWayDetails} roundTripDetails={roundTripDetails} way={way} />
         </Grid>
 
       </Grid>

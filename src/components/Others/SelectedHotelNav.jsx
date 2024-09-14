@@ -32,11 +32,13 @@ import LoginImg2 from '../../Assets/Login/LoginImg2.webp'
 import LoginImg3 from '../../Assets/Login/LoginImg3.webp'
 import Slider from 'react-slick';
 import CircularProgress from '@mui/material/CircularProgress';
+import { usePeopleContext } from '../../Context/MainContext';
 
 
 
 export default function SelectedHotelNav() {
     const [anchorEl, setAnchorEl] = React.useState(null);
+    const {hotelModal, setHotelModal} = usePeopleContext();
     const navigate = useNavigate()
     const [token, setToken] = useState(localStorage.getItem('token')?localStorage.getItem( "token" ):null)
     const [modalToggle, setModalToggle] = useState('signUp');
@@ -58,9 +60,9 @@ export default function SelectedHotelNav() {
     const images = [
         LoginImg1, LoginImg2, LoginImg3
     ]
-    const [openModal, setOpenModal] = React.useState(false);
-    const handleOpenModal = () => { setOpenModal(true), console.log(true) };
-    const handleCloseModal = () => { setOpenModal(false) };
+
+    const handleOpenModal = () => { setHotelModal(true), console.log(true) };
+    const handleCloseModal = () => { setHotelModal(false) };
     const settings = {
         dots: true,
         infinite: true,
@@ -277,7 +279,7 @@ export default function SelectedHotelNav() {
                     <Modal
                         aria-labelledby="unstyled-modal-title"
                         aria-describedby="unstyled-modal-description"
-                        open={openModal}
+                        open={hotelModal}
                         onClose={handleCloseModal}
                         slots={{ backdrop: StyledBackdrop }}
                     >

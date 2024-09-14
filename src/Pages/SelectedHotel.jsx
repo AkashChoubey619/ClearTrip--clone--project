@@ -41,7 +41,7 @@ import LinearProgress from '@mui/material/LinearProgress';
 
 export default function SelectedHotel() {
     const [navToggle, setNavToggle] = useState('general');
-    const { hotelData, setHotelData } = usePeopleContext();
+    const { hotelData, setHotelData , setHotelModal} = usePeopleContext();
     const [isLoading, setIsLoading] = useState(false);
     const [scroll, setScroll] = useState(false);
     const [isShowAbout, setIsShowAbout] = useState(false);
@@ -173,8 +173,10 @@ export default function SelectedHotel() {
         
     }, [hotelId]);
 
-    const handleBookHotel = () => {
-        navigate('/paymentHotel')
+    const handleBookHotel = (event) => {
+        const userLogged = localStorage.getItem('userData');
+        if(userLogged) {navigate('/paymentHotel')};
+        event.preventDefault(),setHotelModal(true)
     }
 
     const rating = Math.floor(hotelData.rating)
@@ -248,7 +250,7 @@ export default function SelectedHotel() {
                             <Typography sx={{ fontSize: "20px", fontWeight: 500, }}>₹{hotelData && Math.floor(hotelData.avgCostPerNight)}</Typography>
                             <Typography sx={{ fontSize: "14px", fontWeight: 500, color: 'grey' }}>/ night + {Math.floor((hotelData.avgCostPerNight * 4) / 100)} tax</Typography>
                             <Button sx={{ textTransform: 'none', minWidth: '190px', background: 'rgb(255, 79, 23)', ml: 2, px: 2, '&:hover': { background: 'rgb(206, 69, 1)' } }}
-                                onClick={() => handleBookHotel()} variant="contained" >Book Now</Button>
+                                onClick={(event) => handleBookHotel(event)} variant="contained" >Book Now</Button>
                         </Box>}
                     </Box>
                 </Box>
@@ -405,7 +407,7 @@ export default function SelectedHotel() {
                                                 </Box>
                                                 <Typography sx={{ fontSize: '14px', color: 'grey' }}>No cost EMI from ₹4,097</Typography>
                                             </Box>
-                                            <Button onClick={() => handleBookHotel()} sx={{
+                                            <Button onClick={(event) => handleBookHotel(event)} sx={{
                                                 textTransform: 'none', minWidth: '180px', height: '45px', borderRadius: '8px',
                                                 background: 'rgb(255, 79, 23)', ml: 2, px: 2, '&:hover': { background: 'rgb(206, 69, 1)' }
                                             }}
@@ -531,7 +533,7 @@ export default function SelectedHotel() {
 
                                                 </Box>
 
-                                                <Button onClick={() => handleBookHotel()}
+                                                <Button onClick={(event) => handleBookHotel(event)}
                                                     sx={{ width: '100%', mt: 3, background: 'rgb(255, 79, 23)', color: 'white', '&:hover': { background: 'rgb(206, 69, 1)' } }}>
                                                     Book now
                                                 </Button>

@@ -8,11 +8,13 @@ export const MainContext = ({ children }) => {
     const [navigate, setNavigate] = useState('flight');
     const [offerNavigation,setOfferNavigation]=useState('allOffer');
     const [flightId,setFlightId]=useState(null);
+    const [openModal, setOpenModal] = useState(false);
+    const [hotelModal, setHotelModal] = useState(false);
     const [hotelData, setHotelData] = useState([])
 
     return (
         <Content.Provider value={{ navigate, setNavigate,offerNavigation,setOfferNavigation,hotelData, setHotelData,
-            flightId,setFlightId}}>
+            flightId,setFlightId,openModal,setOpenModal,hotelModal, setHotelModal}}>
             {children}
         </Content.Provider>
     );

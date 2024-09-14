@@ -11,8 +11,9 @@ import { usePeopleContext } from '../../Context/MainContext';
 
 export default function AllSearchedFlights({ oneWayDetails, roundTripDetails, way }) {
   const oneWay = way ? way : "roundTrip";
-  const { setFlightId } = usePeopleContext();
+  const { setFlightId, setOpenModal } = usePeopleContext();
   const navigate = useNavigate();
+  const userLogged = localStorage.getItem('userData')&&'';
   const [singleWay, setSingleWay] = useState(null);
   const [returnWay, setReturnWay] = useState(null);
   const [showDetails, setShowDetails] = useState(false);
@@ -36,9 +37,15 @@ export default function AllSearchedFlights({ oneWayDetails, roundTripDetails, wa
     setReturnWay(data)
   };
 
-  const handleBookFLight = () => {
+  const handleBookFLight = (event) => {
+    const userLogged = localStorage.getItem('userData');
+    if(userLogged){
     setFlightId([{ flightId1: selectedFlightIdSingle, way: oneWay }, { flightId2: selectedFlightIdReturn, way: oneWay }])
-    navigate("/paymentFlight")
+    navigate("/paymentFlight")}
+    else{
+      event.preventDefault()
+      setOpenModal(true)
+    }
   }
   const handleBookSingleFLight = (id) => {
     setFlightId([{ flightId1: id, way: oneWay }, { flightId2: null, way: null }])
@@ -97,7 +104,19 @@ export default function AllSearchedFlights({ oneWayDetails, roundTripDetails, wa
                       </Typography>
                     </Box>
                     <Box>
-                      <Button onClick={() => handleBookSingleFLight(flight._id)} sx={{ width: "96px", height: '48px', background: '#ff4f17', borderRadius: '8px', '&:hover': { background: '#d4581d' } }}
+                      <Button 
+                       onClick={(event) => {
+                        const userLogged = localStorage.getItem('userData');
+                        if (userLogged) {
+                          console.log(userLogged);
+                          handleBookSingleFLight(flight._id);
+                        } else {
+                          event.preventDefault(); // This prevents the default navigation behavior
+                          setOpenModal(true);
+                          console.log('login');
+                        }
+                      }}
+                       sx={{ width: "96px", height: '48px', background: '#ff4f17', borderRadius: '8px', '&:hover': { background: '#d4581d' } }}
                         variant="contained">Book</Button>
                     </Box>
                   </Box>
@@ -221,7 +240,7 @@ export default function AllSearchedFlights({ oneWayDetails, roundTripDetails, wa
                     </Typography>
                   </Box>
                   <Box>
-                    <Button onClick={() => handleBookFLight()} sx={{ width: "96px", height: '48px', background: '#ff4f17', borderRadius: '8px', '&:hover': { background: '#d4581d' } }}
+                    <Button onClick={(event) => handleBookFLight(event)} sx={{ width: "96px", height: '48px', background: '#ff4f17', borderRadius: '8px', '&:hover': { background: '#d4581d' } }}
                       variant="contained">Book</Button>
                   </Box>
                 </Box>
